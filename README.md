@@ -16,7 +16,7 @@ You will also need to be comfortable with the following tasks:
 - Using Git and Github to bring the sample down to your location machine
 - Using Visual Studio to edit configuration files, build, and run the sample
 
-Every Azure subscription has an associated Azure Active Directory (AAD) tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [http://wwww.windowsazure.com](http://www.windowsazure.com).  All of the Azure AD features used by this sample are available free of charge.
+Every Azure subscription has an associated Azure Active Directory (AAD) tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [http://wwww.windowsazure.com](http://www.windowsazure.com).  Most of the Azure AD features used by this sample are available free of charge.
 
 ### Step 1: Configure a Web App application in your AAD tenant
 Before you can run the sample application you will need to allow it to access your AAD tenant.  If you already have a Web Application configured that you would like to use, you can jump to Step 2.
