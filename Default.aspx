@@ -14,7 +14,7 @@
             <asp:DropDownList ID="DropDownReports" runat="server" OnSelectedIndexChanged="DropDownReports_SelectedIndexChanged" CausesValidation="True" AutoPostBack="True">
                 <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/$metadata?api-version=1.5">Get the OData Service Metadata Document (CSDL)</asp:ListItem>
                 <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/audit?api-version=1.5">Get Audit report for last 30 days</asp:ListItem>
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/audit/?api-version=1.5&amp;$filter=timeStampOffset%20gt%202014-03-01%20and%20timeStampOffset%20lt%202015-04-23">Get Audit report filtered by date range</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/audit/?api-version=1.5&amp;$filter=eventTime%20gt%202014-03-01%20and%20eventTime%20lt%202015-04-23">Get Audit report filtered by date range</asp:ListItem>
                 <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/accountProvisioning?api-version=1.5">Get Account Provisioning report</asp:ListItem>
                 <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsFromUnknownSources?api-version=1.5">Get Sign Ins From Unknown Sources  report</asp:ListItem>
                 <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsFromIPAddressesWithSuspiciousActivity?api-version=1.5">Get Sign Ins From IP Addresses With Suspicious Activity report</asp:ListItem>

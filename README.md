@@ -1,12 +1,63 @@
 # WebApp-GraphAPI-Reporting
-Web application sample that calls the new Azure AD Graph API reporting capabilities
+---------------------------
+This is a web application sample that demonstrates the Azure AD Graph API reporting capabilities.
 
-Please refer to the "Azure AD Graph - Reports and Events" article for information on configuring your Azure AD tenant, to allow application access.  
+## How To Run This Sample
 
-After you've configured your tenant, update the following key/value pairs in the Web.Config file with your tenant and application configuration information :
+To run this sample you will need:
 
-add key="ida:Domain" value="<your-tenant-dns>"                               (DNS name for your AAD tenant)
-add key="ida:ClientId" value="nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn"          (GUID for your AAD application)
-add key="ida:AppKey" value="nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"    (Secret key for your AAD application)
+- Visual Studio 2013 or higher
+- An Internet connection
+- An Azure subscription (a free trial is sufficient)
+
+You will also need to be comfortable with the following tasks:
+
+- Using the Azure Management Portal to do configuration work
+- Using Git and Github to bring the sample down to your location machine
+- Using Visual Studio to edit configuration files, build, and run the sample
+
+Every Azure subscription has an associated Azure Active Directory (AAD) tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [http://wwww.windowsazure.com](http://www.windowsazure.com).  All of the Azure AD features used by this sample are available free of charge.
+
+### Step 1: Configure a Web App application in your AAD tenant
+Before you can run the sample application you will need to allow it to access your AAD tenant.  If you already have a Web Application configured that you would like to use, you can jump to Step 2.
+
+To configure a new AAD application:
+
+1. Log in to the [Azure management portal](http://manage.windowsazure.com), using credentials that have been granted service co-admininstrator access on the subscription which is trusting your AAD tenant, as well as Global Administrator access in the AAD tenant.
+2. Select the AAD tenant you wish to use, and go to the "Applications" page
+3. From there, you can use the "Add" feature to "Add a new application my organization is developing"
+4. Provide a name (ie: WebApp-GraphAPI-Reporting or similar) for the new application
+5. Be sure to select the "Web Application and/or Web API" type, and specify a  valid URL for "Sign-on URL" and "App ID URI", which can be http://localhost for the purposes of this sample
+6. After you've added the new application, select it again so you can make additional changes.  
+7. Then select "Configure", and go to the "Keys" section, where you will create a shared secret key
+8. NOTE: YOU WILL NEED TO NOTE AND SAVE THE KEY FOR LATER.  Key creation is the only time where you will be able to see the key you've created.  The key is made visible on the page after you click "Save".  
+9. While you are on this page, also note the "Client ID" GUID as you will use this and the key in step #3 below.
+10. The last step is to make sure the sample app has permissions to access your AAD tenant.  You provide permissions by going to the "Permissions to other applications" section of your newly created application's configuration page, on the "Windows Azure Active Directory" row, specify "Read Directory Data" under "Delegated Permissions", and click "Save" again.
+11. NOTE: the permission "Access your organization's directory" allows the application to access your organization's directory on behalf of the signed-in user - this is a delegation permission and must be consented by the Administrator for web apps (such as this demo app).
+The permission "Enable sign-on and read users' profiles" allows users to sign in to the application with their organizational accounts and lets the application read the profiles of signed-in users, such as their email address and contact information - this is a delegation permission, and can be consented to by the user.
+The other permissions, "Read Directory data" and "Read and write Directory data", are Delegation and Application Permissions, which only the Administrator can grant consent to.
+
+
+Please refer to the prerequisites section in the "Azure AD Reports and Events" article in the MSDN library (under Services, Azure Active Directory, Graph API) for more depth on configuring an Azure AD tenant to enable an application to access your tenant.  
+
+### Step 2:  Clone or download this repository
+
+From your shell (ie: Git Bash, etc.) or command line, run the following command :
+
+    git clone https://github.com/AzureADSamples/WebApp-GraphAPI-Reporting.git
+
+### Step 3:  Run the sample in Visual Studio 2013
+After you've configured your tenant and downloaded the sample app, you will need to go into the local sub directory in which the Visual Studio solution is stored (typically in <your-git-root-directory>\WebApp-GrapAPI-Reporting), and open the WebApp-GraphAPI-Reporting.sln Visual Studio solution.  Upon opening, navigate to the Web.config file and update the following key/value pairs, using your tenant and application configuration information from earlier :
+
+    <add key="ida:Domain" value="MyTenant.onMicrosoft.com"/>                  		<!-- DNS name for your AAD tenant -->
+    <add key="ida:ClientId" value="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"/>    		<!-- GUID for your AAD application -->
+    <add key="ida:AppKey" value="abcd1234abcd1234abcd1234abcd1234abcd1234abcd"/>	<!-- Secret key for your AAD application -->
+
+When finished, you should be able to successfully build and run the application, which will present a web form UI which you can use for testing against your AAD tenant.
+
+### Step 4:  Run the application with your own AAD tenant
+Use the drop down list box at the top of the web page to select which endpoint you would like to call.  The first item in the list will invoke the $metadata endpoint, which will return the Service Metadata Document (CSDL).  The remaining items in the list will invoke all of the report endpoints, some with variants to demonstrate the supported query options.
+
+
 
 
