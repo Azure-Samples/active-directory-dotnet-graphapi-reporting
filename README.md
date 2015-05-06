@@ -23,7 +23,7 @@ Before you can run the sample application you will need to allow it to access yo
 
 To configure a new AAD application:
 
-1. Log in to the [Azure management portal](http://manage.windowsazure.com), using credentials that have been granted service co-admininstrator access on the subscription which is trusting your AAD tenant, as well as Global Administrator access in the AAD tenant.
+1. Log in to the [Azure management portal](http://manage.windowsazure.com), using credentials that have been granted service co-administrator access on the subscription which is trusting your AAD tenant, as well as Global Administrator access in the AAD tenant.
 2. Select the AAD tenant you wish to use, and go to the "Applications" page
 3. From there, you can use the "Add" feature to "Add a new application my organization is developing"
 4. Provide a name (ie: WebApp-GraphAPI-Reporting or similar) for the new application
@@ -32,7 +32,7 @@ To configure a new AAD application:
 7. Then select "Configure", and go to the "Keys" section, where you will create a shared secret key
 8. NOTE: YOU WILL NEED TO NOTE AND SAVE THE KEY FOR LATER.  Key creation is the only time where you will be able to see the key you've created.  The key is made visible on the page after you click "Save".  
 9. While you are on this page, also note the "Client ID" GUID as you will use this and the key in step #3 below.
-10. The last step is to make sure the sample app has permissions to access your AAD tenant.  You provide permissions by going to the "Permissions to other applications" section of your newly created application's configuration page, on the "Windows Azure Active Directory" row, specify "Read Directory Data" under "Delegated Permissions", and click "Save" again.
+10. The last step is to make sure the sample app has permissions to read reports in your AAD tenant.  You provide permissions by going to the "Permissions to other applications" section of your newly created application's configuration page, on the "Windows Azure Active Directory" row, specify "Read Directory Data" under "Delegated Permissions", and click "Save" again.
 11. NOTE: the permission "Access your organization's directory" allows the application to access your organization's directory on behalf of the signed-in user - this is a delegation permission and must be consented by the Administrator for web apps (such as this demo app).
 The permission "Enable sign-on and read users' profiles" allows users to sign in to the application with their organizational accounts and lets the application read the profiles of signed-in users, such as their email address and contact information - this is a delegation permission, and can be consented to by the user.
 The other permissions, "Read Directory data" and "Read and write Directory data", are Delegation and Application Permissions, which only the Administrator can grant consent to.
