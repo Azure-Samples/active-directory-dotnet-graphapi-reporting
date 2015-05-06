@@ -1,6 +1,6 @@
 # WebApp-GraphAPI-Reporting
 ---------------------------
-This is a web application sample that demonstrates the Azure AD Graph API reporting capabilities.
+This web application sample demonstrates the capabilities of the Azure AD (AAD) Graph API Reporting and Events service, which is currently in Preview.  Please refer to the MSDN article [Azure AD Reports and Events (Preview)] (https://msdn.microsoft.com/en-us/library/azure/mt126081.aspx) for details on the API, and [Azure AD Graph API Versioning] (https://msdn.microsoft.com/en-us/library/azure/dn835125.aspx) for more details on using Graph API Preview features.
 
 ## How To Run This Sample
 
@@ -12,11 +12,11 @@ To run this sample you will need:
 
 You will also need to be comfortable with the following tasks:
 
-- Using the Azure Management Portal to do configuration work
+- Using the Azure Management Portal (or working with your AAD administrator) to do configuration work 
 - Using Git and Github to bring the sample down to your location machine
 - Using Visual Studio to edit configuration files, build, and run the sample
 
-Every Azure subscription has an associated Azure Active Directory (AAD) tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [http://wwww.windowsazure.com](http://www.windowsazure.com).  Most of the Azure AD features used by this sample are available free of charge.
+Every Azure subscription has an associated AAD tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [http://wwww.windowsazure.com](http://www.windowsazure.com).  Many of the Azure AD features used by this sample are available free of charge.  For complete information on the reports that require AAD Premium, please refer to the article [View your access and usage reports](http://azure.microsoft.com/en-us/documentation/articles/active-directory-view-access-usage-reports/).
 
 ### Step 1: Configure a Web App application in your AAD tenant
 Before you can run the sample application you will need to allow it to access your AAD tenant.  If you already have a Web Application configured that you would like to use, you can jump to Step 2.
@@ -46,7 +46,7 @@ From your shell (ie: Git Bash, etc.) or command line, run the following command 
 
     git clone https://github.com/AzureADSamples/WebApp-GraphAPI-Reporting.git
 
-### Step 3:  Run the sample in Visual Studio 2013
+### Step 3:  Edit, build, and run the sample in Visual Studio 2013
 After you've configured your tenant and downloaded the sample app, you will need to go into the local sub directory in which the Visual Studio solution is stored (typically in <your-git-root-directory>\WebApp-GrapAPI-Reporting), and open the WebApp-GraphAPI-Reporting.sln Visual Studio solution.  Upon opening, navigate to the Web.config file and update the following key/value pairs, using your tenant and application configuration information from earlier :
 
     <add key="ida:Domain" value="MyTenant.onMicrosoft.com"/>                  		<!-- DNS name for your AAD tenant -->
