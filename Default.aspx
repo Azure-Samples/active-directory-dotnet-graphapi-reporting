@@ -12,17 +12,17 @@
         <h1>&nbsp;WebApp for Graph Reporting API</h1>
         <p>
             <asp:DropDownList ID="DropDownReports" runat="server" OnSelectedIndexChanged="DropDownReports_SelectedIndexChanged" CausesValidation="True" AutoPostBack="True">
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/$metadata?api-version=1.5">Get the OData Service Metadata Document (CSDL)</asp:ListItem>
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/audit?api-version=1.5">Get Audit report for last 30 days</asp:ListItem>
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/audit/?api-version=1.5&amp;$filter=eventTime%20gt%202014-03-01%20and%20eventTime%20lt%202015-04-23">Get Audit report filtered by date range</asp:ListItem>
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/accountProvisioning?api-version=1.5">Get Account Provisioning report</asp:ListItem>
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsFromUnknownSources?api-version=1.5">Get Sign Ins From Unknown Sources  report</asp:ListItem>
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsFromIPAddressesWithSuspiciousActivity?api-version=1.5">Get Sign Ins From IP Addresses With Suspicious Activity report</asp:ListItem>
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsFromMultipleGeographies?api-version=1.5">Get Sign Ins From Multiple Geographies report</asp:ListItem>
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsFromPossiblyInfectedDevices?api-version=1.5">Get Sign Ins From Possibly Infected Devices report</asp:ListItem>
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/irregularSignInActivity?api-version=1.5">Get Irregular Sign In Activity report</asp:ListItem>
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/usersWithAnomalousSignInActivity?api-version=1.5">Get Users With Anomalous Sign In Activity report</asp:ListItem>
-                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsAfterMultipleFailures?api-version=1.5">Get Sign Ins After Multiple Failures report</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/$metadata?api-version=beta">Get the OData Service Metadata Document (CSDL)</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/auditEvents?api-version=beta">Get Audit report for last 30 days</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/auditEvents/?api-version=beta&amp;$filter=eventTime%20gt%202014-03-01%20and%20eventTime%20lt%202015-04-23">Get Audit report filtered by date range</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/accountProvisioningEvents?api-version=beta">Get Account Provisioning report</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsFromUnknownSourcesEvents?api-version=beta">Get Sign Ins From Unknown Sources  report</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsFromIPAddressesWithSuspiciousActivityEvents?api-version=beta">Get Sign Ins From IP Addresses With Suspicious Activity report</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsFromMultipleGeographiesEvents?api-version=beta">Get Sign Ins From Multiple Geographies report</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsFromPossiblyInfectedDevicesEvents?api-version=beta">Get Sign Ins From Possibly Infected Devices report</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/irregularSignInActivityEvents?api-version=beta">Get Irregular Sign In Activity report</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/usersWithAnomalousSignInActivityEvents?api-version=beta">Get Users With Anomalous Sign In Activity report</asp:ListItem>
+                <asp:ListItem Value="https://graph.windows.net/bltest.onmicrosoft.com/reports/signInsAfterMultipleFailuresEvents?api-version=beta">Get Sign Ins After Multiple Failures report</asp:ListItem>
             </asp:DropDownList>
         </p>
         <h3>OData URL:</h3>
