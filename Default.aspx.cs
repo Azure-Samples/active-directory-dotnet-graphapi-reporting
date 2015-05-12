@@ -4,14 +4,20 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 // Missing references? Install: ADAL
 // Go to Package manager console, under Tools, in visual studio and run:
 // Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory;
+// 
+/* Only change these values in web.config
+    <add key="ida:Domain" value="MyTenant.onMicrosoft.com"/>                        <!-- DNS name for your AAD tenant -->
+    <add key="ida:ClientId" value="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"/>          <!-- GUID for your AAD application -->
+    <add key="ida:AppKey" value="abcd1234abcd1234abcd1234abcd1234abcd1234abcd"/>    <!-- Secret key for your AAD application -->
+ */
 
 namespace SampleAPIProject
 {
-    using System.Collections.Generic;
     using System.Configuration;
     using System.IO;
     using System.Net;
     using System.Security.Authentication;
+    using System.Web.UI.WebControls;
 
     public partial class Default : System.Web.UI.Page
     {
@@ -19,6 +25,8 @@ namespace SampleAPIProject
         {
             if (!Page.IsPostBack)
             {
+                PopulateDropdown();
+
                 // Set up URL for first item in DropDownReports combo
                 if (String.IsNullOrEmpty((txtUrl.Text)))
                 {
@@ -32,6 +40,29 @@ namespace SampleAPIProject
                     CallWebRequest();
                 }
             }
+        }
+
+        private void PopulateDropdown()
+        {
+            string domainUrl = String.Format("{0}/{1}",
+                ConfigurationManager.AppSettings["ida:GraphResourceId"],
+                ConfigurationManager.AppSettings["ida:Domain"]);
+            string basicUrl = domainUrl + "/reports/{0}?api-version=beta";
+
+            DropDownReports.Items.Add(new ListItem("List of reports", domainUrl + "/reports?api-version=beta"));
+            DropDownReports.Items.Add(new ListItem("OData Service Metadata", String.Format(basicUrl,"$metadata")));
+            DropDownReports.Items.Add(new ListItem("Audit report for last 30 days", String.Format(basicUrl,"auditEvents")));
+            DropDownReports.Items.Add(new ListItem("Audit report filtered by date range", String.Format(basicUrl,"auditEvents")+ ComputeDateString()));
+            DropDownReports.Items.Add(new ListItem("SignIns From Unknown Sources", String.Format(basicUrl,"signInsFromUnknownSourcesEvents")));
+        }
+
+        private string ComputeDateString()
+        {
+            string datefilter = "&$filter=eventTime gt {0} and eventTime lt {1}";
+            var fromDate = DateTime.UtcNow.AddDays(-5).Date;
+            var ToDate = DateTime.UtcNow.AddDays(-2).Date;
+
+            return String.Format(datefilter, fromDate.ToString("yyyy-MM-dd"), ToDate.ToString("yyyy-MM-dd"));
         }
 
         protected void btnStart_Click(object sender, EventArgs e)
@@ -82,7 +113,7 @@ namespace SampleAPIProject
             {
                 // 1. Build up the HTTP request, add "Authorization" header with bearer token
                 // 2. Attempt to call the reporting service REST endpoint specified in txtUrl 
-                string token = lblToken.Text = GetToken();
+                string token = GetToken();
 
                 string uri = txtUrl.Text;
                 WebRequest request = WebRequest.Create(uri);
@@ -97,6 +128,8 @@ namespace SampleAPIProject
                     }
                 }
 
+                lblResult.Text = "Result: " + txtUrl.Text;
+
             }
             catch (WebException ex)
             {
@@ -106,8 +139,8 @@ namespace SampleAPIProject
 
         protected void DropDownReports_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Set the URL textbox accordingly, based on current combobox selection
-            txtUrl.Text = DropDownReports.Text;    
+            txtUrl.Text = DropDownReports.SelectedValue;
         }
+
     }
 }
