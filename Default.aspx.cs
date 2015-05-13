@@ -53,7 +53,14 @@ namespace SampleAPIProject
             DropDownReports.Items.Add(new ListItem("OData Service Metadata", String.Format(basicUrl,"$metadata")));
             DropDownReports.Items.Add(new ListItem("Audit report for last 30 days", String.Format(basicUrl,"auditEvents")));
             DropDownReports.Items.Add(new ListItem("Audit report filtered by date range", String.Format(basicUrl,"auditEvents")+ ComputeDateString()));
-            DropDownReports.Items.Add(new ListItem("SignIns From Unknown Sources", String.Format(basicUrl,"signInsFromUnknownSourcesEvents")));
+            DropDownReports.Items.Add(new ListItem("Account Provisioning Events", String.Format(basicUrl, "accountProvisioningEvents")));
+            DropDownReports.Items.Add(new ListItem("SignIns From Unknown Sources", String.Format(basicUrl, "signInsFromUnknownSourcesEvents")));
+            DropDownReports.Items.Add(new ListItem("SignIns From IP Addresses With Suspicious Activity", String.Format(basicUrl, "signInsFromIPAddressesWithSuspiciousActivityEvents")));
+            DropDownReports.Items.Add(new ListItem("SignIns From Multiple Geographies", String.Format(basicUrl, "signInsFromMultipleGeographiesEvents")));
+            DropDownReports.Items.Add(new ListItem("SignIns From Possibily Infected Devices", String.Format(basicUrl, "signInsFromPossiblyInfectedDevicesEvents")));
+            DropDownReports.Items.Add(new ListItem("Irregular Sign Ins", String.Format(basicUrl, "irregularSignInEvents")));
+            DropDownReports.Items.Add(new ListItem("Users with Anomalous SignIn Activity", String.Format(basicUrl, "allUsersWithAnomalousSignInEvents")));
+            DropDownReports.Items.Add(new ListItem("SignIns after Multiple Failures", String.Format(basicUrl, "signInsAfterMultipleFailuresEvents")));
         }
 
         private string ComputeDateString()
