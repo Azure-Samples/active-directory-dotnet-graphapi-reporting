@@ -58,7 +58,7 @@ namespace SampleAPIProject
             DropDownReports.Items.Add(new ListItem("SignIns From IP Addresses With Suspicious Activity", String.Format(basicUrl, "signInsFromIPAddressesWithSuspiciousActivityEvents")));
             DropDownReports.Items.Add(new ListItem("SignIns From Multiple Geographies", String.Format(basicUrl, "signInsFromMultipleGeographiesEvents")));
             DropDownReports.Items.Add(new ListItem("SignIns From Possibily Infected Devices", String.Format(basicUrl, "signInsFromPossiblyInfectedDevicesEvents")));
-            DropDownReports.Items.Add(new ListItem("Irregular Sign Ins", String.Format(basicUrl, "irregularSignInEvents")));
+            DropDownReports.Items.Add(new ListItem("Irregular Sign Ins", String.Format(basicUrl, "irregularSignInActivityEvents")));
             DropDownReports.Items.Add(new ListItem("Users with Anomalous SignIn Activity", String.Format(basicUrl, "allUsersWithAnomalousSignInEvents")));
             DropDownReports.Items.Add(new ListItem("SignIns after Multiple Failures", String.Format(basicUrl, "signInsAfterMultipleFailuresEvents")));
         }
