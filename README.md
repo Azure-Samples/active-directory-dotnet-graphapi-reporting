@@ -1,3 +1,9 @@
+---
+services:
+platforms:
+author: azure
+---
+
 # WebApp-GraphAPI-Reporting
 ---------------------------
 This web application sample demonstrates the capabilities of the Azure AD (AAD) Graph API Reporting and Events service, which is currently in Preview.  Please refer to the MSDN article [Azure AD Reports and Events (Preview)] (https://msdn.microsoft.com/en-us/library/azure/mt126081.aspx) for details on the API, and [Azure AD Graph API Versioning] (https://msdn.microsoft.com/en-us/library/azure/dn835125.aspx) for more details on using Graph API Preview features.
