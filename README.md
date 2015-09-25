@@ -1,11 +1,11 @@
 ---
-services:
-platforms:
-author: azure
+services: active-directory
+platforms: dotnet
+author: dstrockis
 ---
 
 # Using the Graph API Reporting Features
----------------------------
+
 This web application sample demonstrates the capabilities of the Azure AD (AAD) Graph API Reporting and Events service, which is currently in Preview.  Please refer to the MSDN article [Azure AD Reports and Events (Preview)] (https://msdn.microsoft.com/en-us/library/azure/mt126081.aspx) for details on the API, and [Azure AD Graph API Versioning] (https://msdn.microsoft.com/en-us/library/azure/dn835125.aspx) for more details on using Graph API Preview features.
 
 ## How To Run This Sample
@@ -50,7 +50,7 @@ Please refer to the prerequisites section in the "Azure AD Reports and Events" a
 
 From your shell (ie: Git Bash, etc.) or command line, run the following command :
 
-    git clone https://github.com/AzureADSamples/WebApp-GraphAPI-Reporting.git
+    git clone https://github.com/Azure-Samples/active-directory-dotnet-graphapi-reporting.git
 
 ### Step 3:  Edit, build, and run the sample in Visual Studio 2013
 After you've configured your tenant and downloaded the sample app, you will need to go into the local sub directory in which the Visual Studio solution is stored (typically in <your-git-root-directory>\WebApp-GrapAPI-Reporting), and open the WebApp-GraphAPI-Reporting.sln Visual Studio solution.  Upon opening, navigate to the Web.config file and update the following key/value pairs, using your tenant and application configuration information from earlier :
