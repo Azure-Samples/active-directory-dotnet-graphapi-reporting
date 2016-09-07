@@ -29,20 +29,15 @@ Before you can run the sample application you will need to allow it to access yo
 
 To configure a new AAD application:
 
-1. Log in to the [Azure management portal](http://manage.windowsazure.com), using credentials that have been granted service co-administrator access on the subscription which is trusting your AAD tenant, as well as Global Administrator access in the AAD tenant.
-2. Select the AAD tenant you wish to use, and go to the "Applications" page
-3. From there, you can use the "Add" feature to "Add a new application my organization is developing"
-4. Provide a name (ie: WebApp-GraphAPI-Reporting or similar) for the new application
-5. Be sure to select the "Web Application and/or Web API" type, and specify a  valid URL for "Sign-on URL" and "App ID URI", which can be http://localhost for the purposes of this sample
-6. After you've added the new application, select it again so you can make additional changes.  
-7. Then select "Configure", and go to the "Keys" section, where you will create a shared secret key
-8. NOTE: YOU WILL NEED TO NOTE AND SAVE THE KEY FOR LATER.  Key creation is the only time where you will be able to see the key you've created.  The key is made visible on the page after you click "Save".  
-9. While you are on this page, also note the "Client ID" GUID as you will use this and the key in step #3 below.
-10. The last step is to make sure the sample app has permissions to read reports in your AAD tenant.  You provide permissions by going to the "Permissions to other applications" section of your newly created application's configuration page, on the "Azure Active Directory" row, specify "Read Directory Data" under "Delegated Permissions", and click "Save" again.
-11. NOTE: the permission "Access your organization's directory" allows the application to access your organization's directory on behalf of the signed-in user - this is a delegation permission and must be consented by the Administrator for web apps (such as this demo app).
-The permission "Enable sign-on and read users' profiles" allows users to sign in to the application with their organizational accounts and lets the application read the profiles of signed-in users, such as their email address and contact information - this is a delegation permission, and can be consented to by the user.
-The other permissions, "Read Directory data" and "Read and write Directory data", are Delegation and Application Permissions, which only the Administrator can grant consent to.
-
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+2. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+3. Click on **Registered Applications** and choose **Add**.
+4. Enter a friendly name for the application, for example 'WebApp-GraphAPI-Reporting' and select 'Web Application and/or Web API' as the Application Type. For the sign-on URL, enter the base URL for the sample, which is by default `https://localhost`. Click on **Create** to create the application.
+5. While still in the Azure portal, choose your application, click on **Settings** and choose **Properties**.
+6. Find the Application ID value and copy it to the clipboard.
+7. From the Settings menu, choose **Keys** and add a key - select a key duration of either 1 year or 2 years. When you save this page, the key value will be displayed, copy and save the value in a safe location - you will need this key later to configure the project in Visual Studio - this key value will not be displayed again, nor retrievable by any other means, so please record it as soon as it is visible from the Azure Portal.
+8. Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and select 'Microsoft Graph' (this is the Graph API). Then, click on  **Select Permissions** and select 'Read Directory Data'. NOTE: the permission "Access directory as the signed-in user" allows the application to access your organization's directory on behalf of the signed-in user - this is a delegation permission and must be consented by the Administrator for web apps (such as this demo app). The permission "Sign in and read user profile" allows users to sign in to the application with their organizational accounts and lets the application read the profiles of signed-in users, such as their email address and contact information - this is a delegation permission, and can be consented to by the user. The other permissions, "Read Directory data" and "Read and write Directory data", are Delegation and Application Permissions, which only the Administrator can grant consent to.
 
 Please refer to the prerequisites section in the "Azure AD Reports and Events" article in the MSDN library (under Services, Azure Active Directory, Graph API) for more depth on configuring an Azure AD tenant to enable an application to access your tenant.  
 
