@@ -14,7 +14,8 @@ To run this sample you will need:
 
 - Visual Studio 2013 or higher
 - An Internet connection
-- An Azure subscription (a free trial is sufficient)
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, please see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/) 
+- A user account in your Azure AD tenant. This sample will not work with a Microsoft account, so if you signed in to the Azure portal with a Microsoft account and have never created a user account in your directory before, you need to do that now.
 
 You will also need to be comfortable with the following tasks:
 
@@ -22,7 +23,7 @@ You will also need to be comfortable with the following tasks:
 - Using Git and Github to bring the sample down to your location machine
 - Using Visual Studio to edit configuration files, build, and run the sample
 
-Every Azure subscription has an associated AAD tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [http://wwww.windowsazure.com](http://www.windowsazure.com).  Many of the Azure AD features used by this sample are available free of charge.  For complete information on the reports that require AAD Premium, please refer to the article [View your access and usage reports](http://azure.microsoft.com/en-us/documentation/articles/active-directory-view-access-usage-reports/).
+For complete information on the reports that require AAD Premium, please refer to the article [View your access and usage reports](http://azure.microsoft.com/en-us/documentation/articles/active-directory-view-access-usage-reports/).
 
 ### Step 1: Configure a Web App application in your AAD tenant
 Before you can run the sample application you will need to allow it to access your AAD tenant.  If you already have a Web Application configured that you would like to use, you can jump to Step 2.
