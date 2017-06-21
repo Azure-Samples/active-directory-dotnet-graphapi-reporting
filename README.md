@@ -1,7 +1,7 @@
 ---
 services: active-directory
 platforms: dotnet
-author: dstrockis
+author: jmprieur
 ---
 
 # Using the Graph API Reporting Features
